@@ -1,15 +1,14 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import Login from './src/screens.js/Login';
 
-const App = () => {
+const Home = () => {
   return (
-    <View style={{flex: 1}}>
-      <Login />
+    <View>
+      <Text>Home</Text>
     </View>
   );
 };
 
-export default App;
+export default Home;
 
 const styles = StyleSheet.create({});
