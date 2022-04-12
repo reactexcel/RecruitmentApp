@@ -5,13 +5,24 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 
-const Login = () => {
+const Login = ({navigation}) => {
+  const [email, setEmail] = useState('');
+  const LoginAuth = () => {
+    if (email == '0007') {
+      navigation.navigate('Home');
+    }
+  };
   return (
     <View style={styles.container}>
-      <TextInput placeholder="Enter your Email" style={styles.inputEmail} />
-      <TouchableOpacity style={styles.Btn}>
+      <TextInput
+        placeholder="Enter your Email"
+        style={styles.inputEmail}
+        value={email}
+        onChangeText={e => setEmail(e)}
+      />
+      <TouchableOpacity style={styles.Btn} onPress={LoginAuth}>
         <Text style={styles.BtnText}>Login</Text>
       </TouchableOpacity>
     </View>

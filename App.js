@@ -1,12 +1,16 @@
+import 'react-native-gesture-handler';
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import Login from './src/screens.js/Login';
+import MyScreens from './src/screens.js/navigations/Navigation';
+import {NavigationContainer} from '@react-navigation/native';
 
 const App = () => {
   return (
-    <View style={{flex: 1}}>
-      <Login />
-    </View>
+    <NavigationContainer>
+      <View style={{flex: 1}}>
+        <MyScreens />
+      </View>
+    </NavigationContainer>
   );
 };
 
