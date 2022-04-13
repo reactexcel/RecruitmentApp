@@ -5,7 +5,7 @@ import Options from './Options';
 
 const Questions = () => {
   return (
-    <View style={{marginVertical: 10}}>
+    <View style={{marginVertical: 10, flex: 1}}>
       <Text style={styles.QuestionStyle}>Question : what is javascript</Text>
       <Options />
       <Options />

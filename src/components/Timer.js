@@ -1,11 +1,12 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React, {useState, useEffect, useRef} from 'react';
 const MinutesToMillis = min => min * 1000 * 60;
-const Timer = () => {
+const Timer = ({navigation, isPaused}) => {
+  //   console.log(isPaused, '------->');
   const [millis, setMillis] = useState(MinutesToMillis(Minute));
-  //   const [isPaused, setPaused] = useState(true);
+  // const [isPaused, setPaused] = useState(true);
   const interval = useRef(null);
-  const Minute = 30;
+  const Minute = 0.1;
   const minute = Math.floor(millis / 1000 / 60) % 60;
   const second = Math.floor(millis / 1000) % 60;
   useEffect(() => {
@@ -15,6 +16,7 @@ const Timer = () => {
     setMillis(prevtime => {
       if (prevtime === 0) {
         clearInterval(interval.current);
+        navigation.navigate('Thankyou');
         return prevtime;
       }
       const temiLeft = prevtime - 1000;
@@ -22,8 +24,11 @@ const Timer = () => {
     });
   };
   useEffect(() => {
+    if (isPaused) {
+      setMillis(0);
+    }
     interval.current = setInterval(countdown, 1000);
-  }, []);
+  }, [isPaused]);
   const formatTime = time => (time < 10 ? `0${time}` : time);
   return (
     <View style={styles.container}>
