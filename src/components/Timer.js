@@ -15,6 +15,7 @@ const Timer = ({navigation, isPaused}) => {
   const countdown = () => {
     setMillis(prevtime => {
       if (prevtime === 0) {
+        console.log('back');
         clearInterval(interval.current);
         navigation.navigate('Thankyou');
         return prevtime;
@@ -26,6 +27,7 @@ const Timer = ({navigation, isPaused}) => {
   useEffect(() => {
     if (isPaused) {
       setMillis(0);
+      clearInterval(interval.current);
     }
     interval.current = setInterval(countdown, 1000);
   }, [isPaused]);

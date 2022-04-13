@@ -16,23 +16,19 @@ const Home = ({navigation}) => {
     <View style={{flex: 1}}>
       <Text style={styles.header}>Time Status Here </Text>
       <Timer navigation={navigation} isPaused={isPaused} />
-      <View style={styles.container}>
-        <FlatList
-          // style={{flex: 0.5}}
-          data={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-          renderItem={() => {
-            return <Questions />;
-          }}
-        />
+      <ScrollView style={styles.container}>
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(i => (
+          <Questions key={i} />
+        ))}
         <TouchableOpacity
           style={styles.submitBtn}
           onPress={() => {
-            setIsPaused(!isPaused);
-            // navigation.navigate('Thankyou');
+            setIsPaused(true);
+            navigation.navigate('Thankyou');
           }}>
           <Text style={styles.submitBtnText}>Submit Test</Text>
         </TouchableOpacity>
-      </View>
+      </ScrollView>
     </View>
   );
 };
