@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import MyScreens from './src/screens.js/navigations/Navigation';
+import MyScreens from './src/navigations/Navigation';
 import {NavigationContainer} from '@react-navigation/native';
 
 const App = () => {
