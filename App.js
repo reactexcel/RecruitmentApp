@@ -7,7 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 const App = () => {
   return (
     <NavigationContainer>
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor: '#fff'}}>
         <MyScreens />
       </View>
     </NavigationContainer>

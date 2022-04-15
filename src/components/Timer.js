@@ -2,11 +2,10 @@ import {StyleSheet, Text, View} from 'react-native';
 import React, {useState, useEffect, useRef} from 'react';
 const MinutesToMillis = min => min * 1000 * 60;
 const Timer = ({navigation, isPaused}) => {
-  //   console.log(isPaused, '------->');
   const [millis, setMillis] = useState(MinutesToMillis(Minute));
   // const [isPaused, setPaused] = useState(true);
   const interval = useRef(null);
-  const Minute = 0.1;
+  const Minute = 5;
   const minute = Math.floor(millis / 1000 / 60) % 60;
   const second = Math.floor(millis / 1000) % 60;
   useEffect(() => {
@@ -15,7 +14,6 @@ const Timer = ({navigation, isPaused}) => {
   const countdown = () => {
     setMillis(prevtime => {
       if (prevtime === 0) {
-        console.log('back');
         clearInterval(interval.current);
         navigation.navigate('Thankyou');
         return prevtime;

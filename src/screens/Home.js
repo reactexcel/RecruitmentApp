@@ -9,16 +9,17 @@ import {
 import React, {useState} from 'react';
 import Timer from '../components/Timer';
 import Questions from '../components/Questions';
+import data from '../components/Json';
 
 const Home = ({navigation}) => {
   const [isPaused, setIsPaused] = useState(false);
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, paddingHorizontal: 10, backgroundColor: '#fff'}}>
       <Text style={styles.header}>Time Status Here </Text>
       <Timer navigation={navigation} isPaused={isPaused} />
       <ScrollView style={styles.container}>
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(i => (
-          <Questions key={i} />
+        {data.map((item, i) => (
+          <Questions key={i} item={item} />
         ))}
         <TouchableOpacity
           style={styles.submitBtn}
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
   submitBtn: {
     backgroundColor: 'blue',
     padding: 10,
-    // marginBottom: 5,
+    marginBottom: 5,
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',

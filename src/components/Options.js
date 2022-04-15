@@ -1,11 +1,11 @@
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 
-const Options = () => {
+const Options = ({option}) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.btnStyle}></TouchableOpacity>
-      <Text style={styles.optionText}>PROGRAMING LAGUAGE </Text>
+      <Text style={styles.optionText}>{option}</Text>
     </View>
   );
 };
@@ -14,10 +14,19 @@ export default Options;
 
 const styles = StyleSheet.create({
   btnStyle: {
-    backgroundColor: 'red',
+    borderWidth: 2,
+    borderColor: '#ccc',
     height: 20,
     width: 20,
     borderRadius: 10,
+  },
+  btnStyleTrue: {
+    borderWidth: 2,
+    borderColor: '#ccc',
+    height: 20,
+    width: 20,
+    borderRadius: 10,
+    backgroundColor: 'blue',
   },
   container: {
     flexDirection: 'row',
