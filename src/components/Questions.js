@@ -1,11 +1,15 @@
 import {StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Options from './Options';
 
-const Questions = ({item}) => {
-  const [selectedOption, setSelectedOption] = useState('');
-  console.log(item, '--------> itemssss');
+const Questions = ({item, generateData}) => {
+  const [selectedOption, setSelectedOption] = useState();
+  // console.log(item);
+  useEffect(() => {
+    generateData(selectedOption);
+  }, [selectedOption]);
+
   return (
     <View style={{marginVertical: 10, flex: 1}}>
       <Text style={styles.QuestionStyle}>Question : {item.question}</Text>
@@ -13,9 +17,17 @@ const Questions = ({item}) => {
         <View style={styles.container}>
           <TouchableOpacity
             style={
-              selectedOption === option ? styles.btnStyleTrue : styles.btnStyle
+              selectedOption?.option === option
+                ? styles.btnStyleTrue
+                : styles.btnStyle
             }
-            onPress={() => setSelectedOption(option)}></TouchableOpacity>
+            // onPress={() => {
+            //   setSelectedOption({option: option, id: item.id})
+            //     generateData(selectedOption);
+            // }}
+            onPress={() => {
+              setSelectedOption({option: option, id: item.id});
+            }}></TouchableOpacity>
           <Text style={styles.optionText}>{option}</Text>
         </View>
       ))}

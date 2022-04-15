@@ -5,7 +5,7 @@ const Timer = ({navigation, isPaused}) => {
   const [millis, setMillis] = useState(MinutesToMillis(Minute));
   // const [isPaused, setPaused] = useState(true);
   const interval = useRef(null);
-  const Minute = 5;
+  const Minute = 30;
   const minute = Math.floor(millis / 1000 / 60) % 60;
   const second = Math.floor(millis / 1000) % 60;
   useEffect(() => {
