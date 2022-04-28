@@ -1,0 +1,20 @@
+diff --git a/node_modules/react-native/local-cli/cli.js b/node_modules/react-native/local-cli/cli.js
+index b5deb9f..b810f6f 100644
+--- a/node_modules/react-native/local-cli/cli.js
++++ b/node_modules/react-native/local-cli/cli.js
+@@ -8,6 +8,7 @@
+  */
+ 
+ 'use strict';
++console.log("Hi From pankaj patch")
+ 
+ var cli = require('@react-native-community/cli');
+ 
+diff --git a/node_modules/react-native/scripts/.packager.bat b/node_modules/react-native/scripts/.packager.bat
+new file mode 100644
+index 0000000..e89260e
+--- /dev/null
++++ b/node_modules/react-native/scripts/.packager.bat
+@@ -0,0 +1 @@
++set RCT_METRO_PORT=8081
+\ No newline at end of file
